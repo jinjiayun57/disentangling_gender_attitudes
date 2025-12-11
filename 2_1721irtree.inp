@@ -1,0 +1,36 @@
+TITLE:
+  Tree Model for 2017 2018 2021
+  smde 
+  Items:E1 E2 E3 E4 E5
+  ns m d e
+
+DATA:
+FILE = "1721tree.txt";
+ 
+VARIABLE:
+ NAMES = person s1 s2 s3 s4 s5 m1 m2 m3 m4 m5 d1 d2 d3 d4 d5 e1 e2 e3 e4 e5 year; 
+ IDVARIABLE = person;
+ MISSING=.;
+ CATEGORICAL = s1 s2 s3 s4 s5 m1 m2 m3 m4 m5 d1 d2 d3 d4 d5 e1 e2 e3 e4 e5;
+ USEVARIABLES = s1 s2 s3 s4 s5 m1 m2 m3 m4 m5 d1 d2 d3 d4 d5 e1 e2 e3 e4 e5;
+
+ANALYSIS:
+
+ ALGORITHM = INTEGRATION EM;
+ PROCESSORS = 5;
+ ESTIMATOR = MLR;
+ INTEGRATION = 4;
+ MITERATIONS = 1000;
+ LINK = logit;
+
+MODEL: 
+  s BY s1 s2 s3 s4 s5;
+  m BY m1 m2 m3 m4 m5;
+  d BY d1 d2 d3 d4 d5;
+  e BY e1 e2 e3 e4 e5;
+
+OUTPUT:
+STDYX TECH1 TECH4 TECH8;
+SAVEDATA:
+FILE = tree1721-smde-logit1.fsc;
+SAVE = FSCORES;
