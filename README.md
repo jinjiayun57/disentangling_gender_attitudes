@@ -37,3 +37,8 @@ This repository contains five scripts that form one analysis pipeline:
 5. Run `5_multinomial_results.R` → produces multinomial/AME figures.
 
 (Details on variable coding and model specification are documented inside each script.)
+
+## Data availability
+
+- Original CGSS 2017/2018/2021 data can be obtained from the CGSS / Chinese National Survey Data Archive:  
+  <https://www.cnsda.org/>. The preprocessed data and other derived data from CGSS data are included in this repository. 
